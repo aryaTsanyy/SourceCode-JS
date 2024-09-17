@@ -128,3 +128,4 @@ export class BlurScrollEffect {
     );
   }
 }
+/* Blur Scroll Effect */
