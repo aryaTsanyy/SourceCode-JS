@@ -129,7 +129,7 @@ export class BlurScrollEffect {
   }
 }
 /* Blur Scroll Effect */
-// Inisialisasi efek blur scroll pada elemen
+// Inisialisasi efek blur scroll pada elemen class
 document.addEventListener("DOMContentLoaded", () => {
   const textElement = document.querySelector(".blur-text--2");
   if (textElement) {
@@ -138,3 +138,4 @@ document.addEventListener("DOMContentLoaded", () => {
     console.error("Elemen teks tidak ditemukan.");
   }
 });
+/* Inisialisasi efek blur scroll pada elemen class */
