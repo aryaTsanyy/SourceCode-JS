@@ -3,6 +3,7 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
+/* GSAP */
 /* Debounce */
 export const debounce = (func, delay) => {
   let timerId; // Holds a reference to the timeout between calls.
@@ -13,6 +14,7 @@ export const debounce = (func, delay) => {
     }, delay);
   };
 };
+/* Debounce */
 /* Text Splitter */
 export class TextSplitter {
   constructor(textElement, options = {}) {
@@ -71,6 +73,7 @@ export class TextSplitter {
     return this.splitText.chars;
   }
 }
+
 /* BlurScrollEffect */
 // Defines a class to create scroll-triggered animation effects on text.
 export class BlurScrollEffect {
