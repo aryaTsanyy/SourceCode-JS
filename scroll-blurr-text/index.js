@@ -1,7 +1,8 @@
 /** @format */
 /* GSAP */
 import { gsap } from "gsap";
-import { scrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 /* Debounce */
 export const debounce = (func, delay) => {
   let timerId; // Holds a reference to the timeout between calls.
@@ -26,9 +27,6 @@ export class TextSplitter {
     // Assign the resize callback if provided and is a function, otherwise null.
     this.onResize = typeof resizeCallback === "function" ? resizeCallback : null;
 
-    // Set options for SplitType based on provided splitTypeTypes or default to SplitType's default behavior.
-    // The 'types' option allows customization of how text is split (e.g., into lines, words, characters).
-    // Refer to SplitType documentation for possible values and updates: https://github.com/lukePeavey/SplitType
     const splitOptions = splitTypeTypes ? { types: splitTypeTypes } : {};
     this.splitText = new SplitType(this.textElement, splitOptions);
 
@@ -117,7 +115,7 @@ export class BlurScrollEffect {
         ease: "none", // Animation easing.
         filter: "blur(0px) brightness(100%)",
         stagger: 0.05, // Delay between starting animations for each character.
-        scrollTrigger: {
+        ScrollTrigger: {
           trigger: this.textElement, // Element that triggers the animation.
           start: "top bottom-=15%", // Animation starts when element hits bottom of viewport.
           end: "bottom center+=15%", // Animation ends in the center of the viewport.
