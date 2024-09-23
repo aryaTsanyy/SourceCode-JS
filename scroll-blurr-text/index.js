@@ -5,7 +5,7 @@ const ScrollTrigger = "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 /* GSAP */
 /* Debounce */
-export const debounce = (func, delay) => {
+const debounce = (func, delay) => {
   let timerId; // Holds a reference to the timeout between calls.
   return (...args) => {
     clearTimeout(timerId); // Clears the current timeout, if any, to reset the debounce timer.
@@ -16,7 +16,7 @@ export const debounce = (func, delay) => {
 };
 /* Debounce */
 /* Text Splitter */
-export class TextSplitter {
+class TextSplitter {
   constructor(textElement, options = {}) {
     // Ensure the textElement is a valid HTMLElement.
     if (!textElement || !(textElement instanceof HTMLElement)) {
@@ -76,7 +76,7 @@ export class TextSplitter {
 
 /* BlurScrollEffect */
 // Defines a class to create scroll-triggered animation effects on text.
-export class BlurScrollEffect {
+class BlurScrollEffect {
   constructor(textElement) {
     // Check if the provided element is valid.
     if (!textElement || !(textElement instanceof HTMLElement)) {
