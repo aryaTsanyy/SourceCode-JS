@@ -1,7 +1,7 @@
 /** @format */
 /* GSAP */
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+const gsap = require("gsap");
+const ScrollTrigger = "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 /* GSAP */
 /* Debounce */
@@ -129,13 +129,12 @@ export class BlurScrollEffect {
   }
 }
 /* Blur Scroll Effect */
-// Inisialisasi efek blur scroll pada elemen class
-document.addEventListener("DOMContentLoaded", () => {
-  const textElement = document.querySelector(".blur-text--2");
-  if (textElement) {
-    new BlurScrollEffect(textElement);
-  } else {
-    console.error("Elemen teks tidak ditemukan.");
-  }
-});
+// Inisialisas ventListener("DOMContentLoaded", () => {
+const textElement = document.querySelector(".blur-text--2");
+if (textElement) {
+  new BlurScrollEffect(textElement);
+} else {
+  console.error("Elemen teks tidak ditemukan.");
+}
+
 /* Inisialisasi efek blur scroll pada elemen class */
