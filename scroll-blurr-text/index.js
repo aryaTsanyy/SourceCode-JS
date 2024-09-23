@@ -1,7 +1,7 @@
 /** @format */
 /* GSAP */
-const gsap = require("gsap");
-const ScrollTrigger = "gsap/ScrollTrigger";
+const { gsap } = require("gsap/dist/gsap");
+const { ScrollTrigger } = require("gsap/dist/ScrollTrigger");
 gsap.registerPlugin(ScrollTrigger);
 /* GSAP */
 /* Debounce */
