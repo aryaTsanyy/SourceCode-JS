@@ -1,8 +1,5 @@
 /** @format */
 /* GSAP */
-const { gsap } = require("gsap/dist/gsap");
-const { ScrollTrigger } = require("gsap/dist/ScrollTrigger");
-gsap.registerPlugin(ScrollTrigger);
 /* GSAP */
 /* Debounce */
 const debounce = (func, delay) => {
