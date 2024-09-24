@@ -1,4 +1,6 @@
 /** @format */
+import { gsap } from "https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js";
+import { ScrollTrigger } from "https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js";
 /* Debounce */
 const debounce = (func, delay) => {
   let timerId; // Holds a reference to the timeout between calls.
@@ -11,7 +13,7 @@ const debounce = (func, delay) => {
 };
 /* Debounce */
 /* Text Splitter */
-class TextSplitter {
+export class TextSplitter {
   constructor(textElement, options = {}) {
     // Ensure the textElement is a valid HTMLElement.
     if (!textElement || !(textElement instanceof HTMLElement)) {
