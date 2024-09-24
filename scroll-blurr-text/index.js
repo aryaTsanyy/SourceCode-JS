@@ -11,7 +11,7 @@ const debounce = (func, delay) => {
 };
 /* Debounce */
 /* Text Splitter */
-export class TextSplitter {
+class TextSplitter {
   constructor(textElement, options = {}) {
     // Ensure the textElement is a valid HTMLElement.
     if (!textElement || !(textElement instanceof HTMLElement)) {
