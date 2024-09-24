@@ -1,8 +1,4 @@
 /** @format */
-/* GSAP */
-import { gsap } from "https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js";
-
-/* GSAP */
 /* Debounce */
 const debounce = (func, delay) => {
   let timerId; // Holds a reference to the timeout between calls.
