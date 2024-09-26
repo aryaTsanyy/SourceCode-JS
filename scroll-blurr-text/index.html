@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: black;
+        }
+
+        /* Style dasar untuk container */
+        .bubble-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(3px, 1fr));
+            gap: 2px;
+            /* Jarak antar bubble */
+            width: 100%;
+            height: 200px;
+            /* Sesuaikan tinggi */
+            position: relative;
+            cursor: pointer;
+            /* Menambahkan pointer agar area lebih interaktif */
+        }
+
+        .bubble {
+            width: 3px;
+            height: 3px;
+            background-color: white;
+            border-radius: 50%;
+            transition: transform 0.1s, background-color 0.1s;
+        }
+
+        .bubble:hover {
+            transform: scale(3);
+            /* Perbesar ukuran */
+            background-color: #ff0066;
+            /* Ubah warna */
+            z-index: 10;
+            /* Pastikan bubble tetap di atas elemen lainnya */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bubble-container">
+        <!-- Tambahkan elemen bubble -->
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <!-- Lanjutkan dengan elemen bubble lainnya -->
+    </div>
+
+    <script>
+        // JavaScript Anda disini
+        const bubbleContainer = document.querySelector('.bubble-container');
+
+        bubbleContainer.addEventListener('mousemove', (event) => {
+            const bubbles = document.elementsFromPoint(event.clientX, event.clientY);
+            bubbles.forEach(bubble => {
+                if (bubble.classList.contains('bubble')) {
+                    bubble.style.transform = 'scale(3)';
+                    bubble.style.backgroundColor = '#ff0066';
+                }
+            });
+        });
+
+        bubbleContainer.addEventListener('mouseleave', () => {
+            document.querySelectorAll('.bubble').forEach(bubble => {
+                bubble.style.transform = 'scale(1)';
+                bubble.style.backgroundColor = 'white';
+            });
+        });
+    </script>
+</body>
+
+
+</html>
