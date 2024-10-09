@@ -69,29 +69,63 @@ class TextSplitter {
   }
 }
 
-const bubbles = document.querySelectorAll(".bubble");
-const container = document.querySelector(".Bubble-Container");
+document.addEventListener("DOMContentLoaded", (event) => {
+  gsap.registerPlugin(ScrollTrigger);
+  // gsap code here!
+  class BlurScrollEffect {
+    constructor(textElement) {
+      // Check if the provided element is valid.
+      if (!textElement || !(textElement instanceof HTMLElement)) {
+        throw new Error("Invalid text element provided.");
+      }
 
-container.addEventListener("mousemove", (e) => {
-  const rect = container.getBoundingClientRect();
-  const mouseX = e.clientX - rect.left;
-  const mouseY = e.clientY - rect.top;
+      this.textElement = textElement;
 
-  bubbles.forEach((dot) => {
-    const dotX = dot.offsetLeft + dot.offsetWidth / 2;
-    const dotY = dot.offsetTop + dot.offsetHeight / 2;
-
-    const distance = Math.hypot(mouseX - dotX, mouseY - dotY);
-
-    const maxDistance = 100; // Sesuaikan dengan jarak yang Anda inginkan agar titik bereaksi
-
-    if (distance < maxDistance) {
-      const scale = 1 + (maxDistance - distance) / maxDistance;
-      dot.style.transform = `scale(${scale})`;
-      dot.style.backgroundColor = "#ff6600"; // Warna saat mendekati kursor
-    } else {
-      dot.style.transform = "scale(1)";
-      dot.style.backgroundColor = "white";
+      // Set up the effect for the provided text element.
+      this.initializeEffect();
     }
-  });
+
+    // Sets up the initial text effect on the provided element.
+    initializeEffect() {
+      // Callback to re-trigger animations on resize.
+      const textResizeCallback = () => this.scroll();
+
+      // Split text for animation and store the reference.
+      this.splitter = new TextSplitter(this.textElement, {
+        resizeCallback: textResizeCallback,
+        splitTypeTypes: "words, chars",
+      });
+
+      // Trigger the initial scroll effect.
+      this.scroll();
+    }
+
+    // Animates text based on the scroll position.
+    scroll() {
+      // Query all individual characters in the line for animation.
+      const chars = this.splitter.getChars();
+      gsap.fromTo(
+        chars,
+        {
+          filter: "blur(10px) brightness(30%)",
+          willChange: "filter",
+        },
+        {
+          ease: "none", // Animation easing.
+          filter: "blur(0px) brightness(100%)",
+          stagger: 0.05, // Delay between starting animations for each character.
+          scrollTrigger: {
+            trigger: this.textElement, // Element that triggers the animation.
+            start: "top bottom-=15%", // Animation starts when element hits bottom of viewport.
+            end: "bottom center+=15%", // Animation ends in the center of the viewport.
+            scrub: true, // Animation progress tied to scroll position.
+          },
+        }
+      );
+    }
+  }
+  const textElement = document.querySelector("#text-blur-2");
+  if (textElement) {
+    new BlurScrollEffect(textElement);
+  }
 });
