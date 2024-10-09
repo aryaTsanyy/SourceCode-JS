@@ -68,3 +68,30 @@ class TextSplitter {
     return this.splitText.chars;
   }
 }
+
+const bubbles = document.querySelectorAll(".bubble");
+const container = document.querySelector(".Bubble-Container");
+
+container.addEventListener("mousemove", (e) => {
+  const rect = container.getBoundingClientRect();
+  const mouseX = e.clientX - rect.left;
+  const mouseY = e.clientY - rect.top;
+
+  bubbles.forEach((dot) => {
+    const dotX = dot.offsetLeft + dot.offsetWidth / 2;
+    const dotY = dot.offsetTop + dot.offsetHeight / 2;
+
+    const distance = Math.hypot(mouseX - dotX, mouseY - dotY);
+
+    const maxDistance = 100; // Sesuaikan dengan jarak yang Anda inginkan agar titik bereaksi
+
+    if (distance < maxDistance) {
+      const scale = 1 + (maxDistance - distance) / maxDistance;
+      dot.style.transform = `scale(${scale})`;
+      dot.style.backgroundColor = "#ff6600"; // Warna saat mendekati kursor
+    } else {
+      dot.style.transform = "scale(1)";
+      dot.style.backgroundColor = "white";
+    }
+  });
+});

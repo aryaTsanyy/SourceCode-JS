@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (bubbleSection) {
         const triggerArea = bubbleSection.querySelector(".bubble-wrapper");
         if (triggerArea) {
-          section.addEventListener("mousemove", (e) => {
+          section.acddEventListener("mousemove", (e) => {
             const isOverTriggerArea = isMouseOverElement(e.clientX, e.clientY, triggerArea);
             if (isOverTriggerArea) {
               cursor.classList.add("large-cursor");

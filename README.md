@@ -1,1 +1,3 @@
-This is a Source Code from Text Blur from codrop and typer from typerdot
+<!-- @format -->
+
+Source Code For Potara Website

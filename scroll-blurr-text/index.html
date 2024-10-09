@@ -5,74 +5,289 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-        body {
-            background-color: black;
-        }
-
-        /* Style dasar untuk container */
-        .bubble-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(3px, 1fr));
-            gap: 2px;
-            /* Jarak antar bubble */
-            width: 100%;
-            height: 200px;
-            /* Sesuaikan tinggi */
+        .dot-container {
             position: relative;
-            cursor: pointer;
-            /* Menambahkan pointer agar area lebih interaktif */
+            width: 100%;
+            height: 300px;
+            /* Sesuaikan dengan tinggi yang Anda inginkan */
+            background-color: #000;
+            /* Warna background */
+            overflow: hidden;
         }
 
-        .bubble {
-            width: 3px;
-            height: 3px;
+        .dot {
+            position: absolute;
+            width: 5px;
+            height: 5px;
             background-color: white;
             border-radius: 50%;
-            transition: transform 0.1s, background-color 0.1s;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            left: calc(var(--x) * 1%);
+            top: calc(var(--y) * 1%);
         }
 
-        .bubble:hover {
-            transform: scale(3);
-            /* Perbesar ukuran */
-            background-color: #ff0066;
-            /* Ubah warna */
-            z-index: 10;
-            /* Pastikan bubble tetap di atas elemen lainnya */
+        .slider-section {
+            width: 100%;
+            height: 500px;
+            /* tinggi slider */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        .slider {
+            width: 500%;
+            /* lebar slider */
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .slide {
+            width: 20%;
+            /* lebar slide */
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .momo {
+            height: 400vh;
+            width: 100%;
         }
     </style>
 </head>
 
-<body>
-    <div class="bubble-container">
-        <!-- Tambahkan elemen bubble -->
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <div class="bubble"></div>
-        <!-- Lanjutkan dengan elemen bubble lainnya -->
+<section>
+    <div class="container">
+        <div class="hero">
+            <div class="top-content">
+                <h1>1</h1>
+            </div>
+            <div class="dot-container">
+                <div class="dot" style="--x: 10; --y: 10;"></div>
+                <div class="dot" style="--x: 20; --y: 10;"></div>
+            </div>
+            <div class="corevalue">
+                <h1>3</h1>
+            </div>
+        </div>
+        <!-- Tambahkan lebih banyak titik dengan posisi berbeda -->
     </div>
 
+    <section class="slider-section">
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide" style="background-image: url('gambar1.jpg')">11</div>
+                <div class="slide" style="background-image: url('gambar2.jpg')">12</div>
+                <div class="slide" style="background-image: url('gambar3.jpg')">13</div>
+                <div class="slide" style="background-image: url('gambar4.jpg')">14</div>
+                <div class="slide" style="background-image: url('gambar5.jpg')">15</div>
+            </div>
+        </div>
+    </section>
+    <section class="momo">
+        <h1>ppp</h1>
+    </section>
+
+
+    <section data-scroll-section="" class="hero-section">
+        <div id="hero" class="hero">
+            <article class="top-container">
+                <div class="left-column">
+                    <div class="body-text">
+                        <div class="design-a-product">
+                            <div class="design-a-product design-a-product">
+                                <span class="text">Design a product</span>
+                                <span class="text-2"></span>
+                            </div>
+                        </div>
+                        <div class="body_text_bottom">
+                            <div class="text">user really</div>
+                            <img src="https://cdn.prod.website-files.com/65bb3dc652f5fa819e5e6ccd/66557cbbdb2a983309bd8432_Vectors-Wrapper.svg"
+                                loading="lazy" width="94" height="60" alt="" class="vectors-wrapper" />
+                            <div class="wrapper-text">
+                                <div id="text-rotate" class="txt-rotated">desire</div>
+                                <div id="text-rotate" class="txt-rotated">desire</div>
+                                <div id="text-rotate" class="txt-rotated">desire4</div>
+                                <div id="text-rotate" class="txt-rotated">desire2</div>
+                                <div id="text-rotate" class="txt-rotated">desire3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right-column">
+                    <img src="https://cdn.prod.website-files.com/65bb3dc652f5fa819e5e6ccd/6656a015011804427ebdb208_Vectors-Wrapper.svg"
+                        loading="lazy" width="525" height="774.000244140625" alt="" class="image-hero" />
+                    <img src="https://cdn.prod.website-files.com/65bb3dc652f5fa819e5e6ccd/66e113dee5ff2115c3cf88d9_responsive_head.png"
+                        loading="lazy" alt="" class="image-hero-responsive" />
+                </div>
+            </article>
+            <div class="bubble-container">
+                <div data-w-id="fc1b2761-3cb1-37ff-5a24-5599b71c6e8c" class="bubble-wrapper">
+                    <div class="row">
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                    </div>
+                    <div class="row">
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
     <script>
-        // JavaScript Anda disini
-        const bubbleContainer = document.querySelector('.bubble-container');
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mengambil elemen dot-container dan dot
+            const container = document.querySelector('.dot-container');
+            const dots = document.querySelectorAll('.dot');
 
-        bubbleContainer.addEventListener('mousemove', (event) => {
-            const bubbles = document.elementsFromPoint(event.clientX, event.clientY);
-            bubbles.forEach(bubble => {
-                if (bubble.classList.contains('bubble')) {
-                    bubble.style.transform = 'scale(3)';
-                    bubble.style.backgroundColor = '#ff0066';
-                }
-            });
+            if (container) {
+                container.addEventListener('mousemove', (e) => {
+                    const rect = container.getBoundingClientRect();
+                    const mouseX = e.clientX - rect.left;
+                    const mouseY = e.clientY - rect.top;
+
+                    dots.forEach(dot => {
+                        const dotX = dot.offsetLeft + dot.offsetWidth / 2;
+                        const dotY = dot.offsetTop + dot.offsetHeight / 2;
+
+                        const distance = Math.hypot(mouseX - dotX, mouseY - dotY);
+                        const maxDistance = 100; // Sesuaikan jarak reaksi titik
+
+                        if (distance < maxDistance) {
+                            const scale = 1 + (maxDistance - distance) / maxDistance;
+                            dot.style.transform = `scale(${scale})`;
+                            dot.style.backgroundColor = '#ff6600'; // Warna saat titik didekati
+                        } else {
+                            dot.style.transform = 'scale(1)';
+                            dot.style.backgroundColor = 'white'; // Warna default titik
+                        }
+                    });
+                });
+            }
         });
+        const slider = document.querySelector('.slider');
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
 
-        bubbleContainer.addEventListener('mouseleave', () => {
-            document.querySelectorAll('.bubble').forEach(bubble => {
-                bubble.style.transform = 'scale(1)';
-                bubble.style.backgroundColor = 'white';
-            });
+        window.addEventListener('scroll', () => {
+            const scrollLeft = window.scrollX;
+            const sliderWidth = slider.offsetWidth;
+            const slideWidth = slides[0].offsetWidth;
+            currentSlide = Math.round(scrollLeft / slideWidth);
+            console.log(currentSlide);
         });
     </script>
-</body>
+    </body>
 
 
 </html>
