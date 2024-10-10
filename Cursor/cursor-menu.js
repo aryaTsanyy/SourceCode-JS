@@ -23,6 +23,6 @@
   if (navbar) {
     link.forEach((b) => b.addEventListener("mousemove", animateit));
     link.forEach((b) => b.addEventListener("mouseleave", animateit));
-    window.addEventListener("mousemove", editCursor);
+    navbar.addEventListener("mousemove", editCursor);
   }
 })();
