@@ -1,6 +1,7 @@
 /** @format */
 
 (function () {
+  const navbar = document.querySelector(".navigationbar");
   const link = document.querySelectorAll(".menu > .nav-menu");
   const cursormenu = document.querySelector(".cursor-menu");
   const animateit = function (e) {
@@ -19,7 +20,9 @@
     cursormenu.style.left = x + "px";
     cursormenu.style.top = y + "px";
   };
-  link.forEach((b) => b.addEventListener("mousemove", animateit));
-  link.forEach((b) => b.addEventListener("mouseleave", animateit));
-  window.addEventListener("mousemove", editCursor);
+  if (navbar) {
+    link.forEach((b) => b.addEventListener("mousemove", animateit));
+    link.forEach((b) => b.addEventListener("mouseleave", animateit));
+    window.addEventListener("mousemove", editCursor);
+  }
 })();

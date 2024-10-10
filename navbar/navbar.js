@@ -38,7 +38,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!navbarVisible) {
         showNavbar();
       }
-      clearTimeout(hideTimeout);
     } else if (currentScroll > lastScrollTop) {
       // Scroll ke bawah
       if (navbarVisible) {
@@ -53,13 +52,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     lastScrollTop = currentScroll;
-  });
-  // Menambahkan event listener untuk mouseover dan mouseleave
-  navbar.addEventListener("mouseover", handleNavbarVisibility);
-  navbar.addEventListener("mouseleave", function () {
-    // Jika cursor keluar dari navbar, sembunyikan setelah 4 detik
-    clearTimeout(hideTimeout);
-    hideTimeout = setTimeout(hideNavbar, 4000);
   });
   clearTimeout(hideTimeout);
 });
