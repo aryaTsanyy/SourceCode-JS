@@ -5,15 +5,15 @@
   const link = document.querySelectorAll(".menu > .nav-menu");
   const cursormenu = document.querySelector(".cursor-menu");
   const animateit = function (e) {
-    const text = this.querySelector(".text-menu");
+    const txtmenu = this.querySelector(".text-menu");
     const { offsetX: x, offsetY: y } = e,
       { offsetWidth: width, offsetHeight: height } = this,
-      move = 25,
+      move = 10,
       xMove = (x / width) * (move * 2) - move,
       yMove = (y / height) * (move * 2) - move;
 
-    text.style.transform = `translate(${xMove}px, ${yMove}px)`;
-    if (e.type === "mouseleave") text.style.transform = "";
+    txtmenu.style.transform = `translate(${xMove}px, ${yMove}px)`;
+    if (e.type === "mouseleave") txtmenu.style.transform = "";
   };
   const editCursor = (e) => {
     const { clientX: x, clientY: y } = e;
