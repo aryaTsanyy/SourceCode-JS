@@ -21,6 +21,9 @@
     cursormenu.style.left = x + "px";
     cursormenu.style.top = y + "px";
   };
+  const cursorhidden = (e) => {
+    cursormenu.style.display = "none";
+  };
   const animateCursorOnLogoHover = (e) => {
     if (e.type === "mouseenter") {
       cursormenu.style.transform = "translate(-50%, -50%) scale(2)";
@@ -35,6 +38,7 @@
     link.forEach((b) => b.addEventListener("mousemove", animateit));
     link.forEach((b) => b.addEventListener("mouseleave", animateit));
     navbar.addEventListener("mousemove", editCursor);
+    navbar.addEventListener("mouseleave", cursorhidden);
     logo.addEventListener("mouseenter", animateCursorOnLogoHover);
     logo.addEventListener("mouseleave", animateCursorOnLogoHover);
   }
