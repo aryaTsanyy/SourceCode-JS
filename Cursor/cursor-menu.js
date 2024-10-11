@@ -23,9 +23,11 @@
   };
   const animateCursorOnLogoHover = (e) => {
     if (e.type === "mouseenter") {
-      cursormenu.style.transform = "translate(-50%, -50%) scale(2)"; // Besar saat hover logo
+      cursormenu.style.transform = "translate(-50%, -50%) scale(2)";
+      logo.style.transform = "scale(1.5)"; // Besar saat hover logo
     } else if (e.type === "mouseleave") {
-      cursormenu.style.transform = ""; // Reset saat tidak hover
+      cursormenu.style.transform = "";
+      logo.style.transform = ""; // Reset saat tidak hover
     }
   };
 
