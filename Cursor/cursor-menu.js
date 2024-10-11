@@ -40,6 +40,9 @@
     link.forEach((b) => b.addEventListener("mouseleave", animateit));
     navbar.addEventListener("mousemove", editCursor);
     navbar.addEventListener("mouseleave", cursorhidden);
+    navbar.addEventListener("mouseenter", () => {
+      cursormenu.style.display = "block";
+    });
     logo.addEventListener("mouseenter", animateCursorOnLogoHover);
     logo.addEventListener("mouseleave", animateCursorOnLogoHover);
   }
