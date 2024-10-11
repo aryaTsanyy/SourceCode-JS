@@ -17,6 +17,7 @@
     if (e.type === "mouseleave") txtmenu.style.transform = "";
   };
   const editCursor = (e) => {
+    cursormenu.style.display = "block";
     const { clientX: x, clientY: y } = e;
     cursormenu.style.left = x + "px";
     cursormenu.style.top = y + "px";
