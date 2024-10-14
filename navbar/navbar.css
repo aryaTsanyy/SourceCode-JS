@@ -1,16 +1,16 @@
-.navigationbar {
+.NavigationBar {
   transition: background-color 0.5s ease, opacity 0.5s ease; /* add transition for smooth animation */
   background-color: transparent; /* initial background color */
 }
 
-.navigationbar.scrolled-up {
+.NavigationBar.scrolled-up {
   background-color: #000; /* change background color to black when scrolled up */
 }
 
-.navigationbar.hidden {
+.NavigationBar.hidden {
   opacity: 0; /* hide the navigation bar */
 }
 
-.navigationbar.show-on-hover:hover {
+.NavigationBar.show-on-hover:hover {
   opacity: 1; /* show the navigation bar on hover */
 }
