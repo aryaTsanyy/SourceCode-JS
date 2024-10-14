@@ -1,6 +1,6 @@
 /** @format */
 
-const navbar = document.querySelector(".NavigationBar");
+const navbar = document.querySelector(".navigationbar");
 let timeoutId = null;
 
 window.addEventListener("scroll", () => {
