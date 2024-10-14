@@ -1,46 +1,48 @@
 /** @format */
 
-let lastScrollTop = 0;
-let navbarTimeout;
-const navbar = document.querySelector(".navbar");
+const navbar = document.querySelector(".navigationbar");
+let timeoutId = null;
 
-// Fungsi untuk menampilkan navbar
-function showNavbar() {
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 0) {
+    navbar.classList.add("scrolled-up");
+    navbar.classList.remove("hidden");
+  } else {
+    navbar.classList.remove("scrolled-up");
+    navbar.classList.add("hidden");
+    clearTimeout(timeoutId);
+  }
+});
+
+window.addEventListener(
+  "scroll",
+  debounce(() => {
+    if (window.scrollY > 0) {
+      timeoutId = setTimeout(() => {
+        navbar.classList.add("hidden");
+      }, 3000); // 3-second delay
+    }
+  }, 100)
+); // debounce to prevent excessive function calls
+
+navbar.addEventListener("mouseover", () => {
   navbar.classList.remove("hidden");
-  navbar.classList.add("visible");
-  clearTimeout(navbarTimeout); // Clear timeout
-  navbarTimeout = setTimeout(() => {
-    navbar.classList.remove("visible"); // Hapus visible setelah 5 detik
-  }, 5000); // Durasi 5 detik
+});
+
+navbar.addEventListener("mouseout", () => {
+  if (window.scrollY > 0) {
+    navbar.classList.add("hidden");
+  }
+});
+
+function debounce(func, wait) {
+  let timeout;
+  return function () {
+    const context = this;
+    const args = arguments;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      func.apply(context, args);
+    }, wait);
+  };
 }
-
-// Event listener untuk scroll
-window.addEventListener("scroll", function () {
-  let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-  // Jika scroll lebih dari 50px, beri warna hitam pada navbar
-  if (scrollTop > 50) {
-    navbar.classList.add("scrolled");
-  } else {
-    navbar.classList.remove("scrolled"); // Buat transparan lagi saat di section pertama
-  }
-
-  // Animasi hide/show berdasarkan arah scroll
-  if (scrollTop > lastScrollTop) {
-    navbar.classList.add("hidden"); // Sembunyikan navbar saat scroll ke bawah
-  } else {
-    showNavbar(); // Tampilkan navbar saat scroll ke atas
-  }
-
-  lastScrollTop = scrollTop;
-});
-
-// Event untuk mendeteksi mouse bergerak
-document.addEventListener("mousemove", function (event) {
-  const cursorY = event.clientY;
-
-  // Jika kursor mendekati bagian atas halaman
-  if (cursorY < 50) {
-    showNavbar(); // Tampilkan navbar
-  }
-});
