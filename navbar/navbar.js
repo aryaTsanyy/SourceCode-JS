@@ -16,7 +16,7 @@ window.addEventListener("scroll", () => {
 
 window.addEventListener(
   "scroll",
-  debounce(() => {
+  perulangan(() => {
     if (window.scrollY > 0) {
       timeoutId = setTimeout(() => {
         navbar.classList.add("hidden");
@@ -35,7 +35,7 @@ navbar.addEventListener("mouseout", () => {
   }
 });
 
-function debounce(func, wait) {
+function perulangan(func, wait) {
   let timeout;
   return function () {
     const context = this;
