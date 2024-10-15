@@ -2,14 +2,15 @@
 
 const navbar = document.querySelector(".navigationbar");
 let timeoutId = null;
+let lastscrolltop = 0;
 
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 0) {
+  if (window.scrollY > lastscrolltop) {
     navbar.classList.add("scrolled-up");
-    navbar.classList.remove("hidden");
+    navbar.classList.add("hidden");
   } else {
     navbar.classList.remove("scrolled-up");
-    navbar.classList.add("hidden");
+    navbar.classList.remove("hidden");
     clearTimeout(timeoutId);
   }
 });
